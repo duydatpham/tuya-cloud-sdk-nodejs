@@ -69,9 +69,10 @@ class GetDeviceListReq extends ApiRequest {
  */
 class PostDeviceCommandReq extends ApiRequestBody {
 
-    constructor(deviceId) {
+    constructor(deviceId, commands) {
         super();
         this.deviceId = deviceId
+        this.commands = commands
     }
 
     getRequestUrl() {
@@ -82,13 +83,16 @@ class PostDeviceCommandReq extends ApiRequestBody {
         return HttpMethod.POST;
     }
 
+    getRequestBody() {
+        return JSON.stringify(this.commands);
+    }
 }
 
 /**
  * 获取设备指令集
  */
-class GetDeviceFunctionsReq extends ApiRequest{
-    constructor(deviceId){
+class GetDeviceFunctionsReq extends ApiRequest {
+    constructor(deviceId) {
         super();
         this.deviceId = deviceId
     }
@@ -106,8 +110,8 @@ class GetDeviceFunctionsReq extends ApiRequest{
 /**
  * 获取设备规格属性
  */
-class GetDeviceSpecificationsReq extends ApiRequest{
-    constructor(deviceId){
+class GetDeviceSpecificationsReq extends ApiRequest {
+    constructor(deviceId) {
         super();
         this.deviceId = deviceId
     }
