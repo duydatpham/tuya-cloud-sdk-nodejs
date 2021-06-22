@@ -22,7 +22,7 @@ class pairTokenClient {
      * @param callback
      */
     static getDevicesByToken(token, callback) {
-        sRequestHandler.sendRequestWithToken(new Models.GetDevicesByTokenReq(token), callback)
+        RequestHandler.sendRequestWithToken(new Models.GetDevicesByTokenReq(token), callback)
     }
 
     /**
